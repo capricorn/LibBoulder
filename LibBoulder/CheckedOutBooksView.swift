@@ -56,9 +56,6 @@ struct CheckedOutBooksView: View {
                 print("Failed to fetch books: \(error)")
             }
         }
-        .onAppear {
-            print(PreviewAssets.jsonCheckedOut)
-        }
     }
 }
 
