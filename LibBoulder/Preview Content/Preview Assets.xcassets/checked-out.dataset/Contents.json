@@ -1,0 +1,12 @@
+{
+  "data" : [
+    {
+      "filename" : "checked-out.json",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
