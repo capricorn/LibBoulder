@@ -8,7 +8,7 @@
 import SwiftUI
 
 private enum PreviewAssetName: String {
-    case jsonCheckedOut
+    case jsonCheckedOut = "checked-out"
 }
 
 private extension NSDataAsset {
@@ -20,6 +20,7 @@ private extension NSDataAsset {
 struct PreviewAssets {
     static var jsonCheckedOut: CheckedOutBooksModel {
         let asset = NSDataAsset(previewName: .jsonCheckedOut)!
+        print("obtained asset")
         return try! JSONDecoder().decode(CheckedOutBooksModel.self, from: asset.data)
     }
 }

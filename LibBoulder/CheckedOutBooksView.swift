@@ -56,5 +56,28 @@ struct CheckedOutBooksView: View {
                 print("Failed to fetch books: \(error)")
             }
         }
+        .onAppear {
+            print(PreviewAssets.jsonCheckedOut)
+        }
     }
+}
+
+private struct LibCatPreviewAPI: LibCatAPIRepresentable {
+    static let baseURL: URL = LibCatAPI.baseURL
+    
+    func login(cardNumber: String) async throws {}
+    
+    func fetchCheckedOutBooks() async throws -> CheckedOutBooksModel {
+        return PreviewAssets.jsonCheckedOut
+    }
+}
+
+#Preview {
+    let defaults = UserDefaults(suiteName: "CheckedOutBooksView")!
+    // TODO: Make extension for this
+    defaults.setValue("123", forKey: UserDefaultKey.libraryCardNumber.rawValue)
+    
+    return CheckedOutBooksView()
+        .environment(\.libCatAPI, LibCatPreviewAPI())
+        .defaultAppStorage(defaults)
 }
