@@ -15,9 +15,17 @@ struct CheckedOutBooksView: View {
     let api = LibCatAPI()
     
     var body: some View {
-        VStack {
-            ForEach(books) { book in
-                Text(book.title)
+        List(books) { book in
+            Text(book.title)
+        }
+        .refreshable {
+            Task {
+                do {
+                    books = (try await api.fetchCheckedOutBooks()).checkedOut
+                    print("Refreshed books: \(Date.now)")
+                } catch {
+                    print("Failed to refresh books: \(error)")
+                }
             }
         }
         .task {
