@@ -20,6 +20,7 @@
 		F033D15C2C7531060025C112 /* CheckedOutBooksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F033D15B2C7531060025C112 /* CheckedOutBooksView.swift */; };
 		F033D15E2C753DBC0025C112 /* EnvironmentExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F033D15D2C753DBC0025C112 /* EnvironmentExtensions.swift */; };
 		F033D1612C753F340025C112 /* UserDefaultsExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F033D1602C753F340025C112 /* UserDefaultsExtensions.swift */; };
+		F033D1632C7541BA0025C112 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F033D1622C7541BA0025C112 /* LoginView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		F033D15B2C7531060025C112 /* CheckedOutBooksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckedOutBooksView.swift; sourceTree = "<group>"; };
 		F033D15D2C753DBC0025C112 /* EnvironmentExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentExtensions.swift; sourceTree = "<group>"; };
 		F033D1602C753F340025C112 /* UserDefaultsExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsExtensions.swift; sourceTree = "<group>"; };
+		F033D1622C7541BA0025C112 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 				F033D12C2C73E4890025C112 /* Assets.xcassets */,
 				F033D12E2C73E4890025C112 /* Preview Content */,
 				F033D15B2C7531060025C112 /* CheckedOutBooksView.swift */,
+				F033D1622C7541BA0025C112 /* LoginView.swift */,
 			);
 			path = LibBoulder;
 			sourceTree = "<group>";
@@ -304,6 +307,7 @@
 				F033D12B2C73E4880025C112 /* ContentView.swift in Sources */,
 				F033D1542C73E6320025C112 /* LibCatAPI.swift in Sources */,
 				F033D1292C73E4880025C112 /* LibBoulderApp.swift in Sources */,
+				F033D1632C7541BA0025C112 /* LoginView.swift in Sources */,
 				F033D15A2C75300D0025C112 /* CheckedOutBookModel.swift in Sources */,
 				F033D15E2C753DBC0025C112 /* EnvironmentExtensions.swift in Sources */,
 				F033D15C2C7531060025C112 /* CheckedOutBooksView.swift in Sources */,

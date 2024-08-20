@@ -8,9 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var libraryCardNo: String = ""
-    @AppStorage("libraryCardNumber") private var libraryCardNumber: String?
-    @Environment(\.libCatAPI) var libCatAPI
+    @AppStorage(UserDefaultKey.libraryCardNumber.rawValue) private var libraryCardNumber: String?
     
     var loggedIn: Bool {
         libraryCardNumber != nil
@@ -23,25 +21,8 @@ struct ContentView: View {
             if loggedIn {
                 CheckedOutBooksView()
             } else {
-                VStack(alignment: .center) {
-                    TextField("Library Card Number", text: $libraryCardNo)
-                        .keyboardType(.numberPad)
-                        .monospaced()
-                    // TODO: Loading indicator
-                    Button("Log in") {
-                        Task {
-                            do {
-                                try await libCatAPI.login(cardNumber: libraryCardNo)
-                                libraryCardNumber = libraryCardNo
-                            } catch {
-                                print("Login failed: \(error)")
-                            }
-                        }
-                    }
-                }
+                LoginView()
             }
-        }
-        .onAppear {
         }
     }
 }
