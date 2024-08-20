@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CheckedOutBooksView: View {
     @State private var books: [CheckedOutBookModel] = []
-    @AppStorage("libraryCardNumber") private var libraryCardNumber: String?
+    @AppStorage(UserDefaultKey.libraryCardNumber.rawValue) private var libraryCardNumber: String?
     @Environment(\.libCatAPI) var libCatAPI
     
     var body: some View {

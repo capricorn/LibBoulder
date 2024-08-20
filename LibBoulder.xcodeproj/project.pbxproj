@@ -19,6 +19,7 @@
 		F033D15A2C75300D0025C112 /* CheckedOutBookModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F033D1592C75300D0025C112 /* CheckedOutBookModel.swift */; };
 		F033D15C2C7531060025C112 /* CheckedOutBooksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F033D15B2C7531060025C112 /* CheckedOutBooksView.swift */; };
 		F033D15E2C753DBC0025C112 /* EnvironmentExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F033D15D2C753DBC0025C112 /* EnvironmentExtensions.swift */; };
+		F033D1612C753F340025C112 /* UserDefaultsExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F033D1602C753F340025C112 /* UserDefaultsExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		F033D1592C75300D0025C112 /* CheckedOutBookModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckedOutBookModel.swift; sourceTree = "<group>"; };
 		F033D15B2C7531060025C112 /* CheckedOutBooksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckedOutBooksView.swift; sourceTree = "<group>"; };
 		F033D15D2C753DBC0025C112 /* EnvironmentExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentExtensions.swift; sourceTree = "<group>"; };
+		F033D1602C753F340025C112 /* UserDefaultsExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				F033D15D2C753DBC0025C112 /* EnvironmentExtensions.swift */,
+				F033D1602C753F340025C112 /* UserDefaultsExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -304,6 +307,7 @@
 				F033D15A2C75300D0025C112 /* CheckedOutBookModel.swift in Sources */,
 				F033D15E2C753DBC0025C112 /* EnvironmentExtensions.swift in Sources */,
 				F033D15C2C7531060025C112 /* CheckedOutBooksView.swift in Sources */,
+				F033D1612C753F340025C112 /* UserDefaultsExtensions.swift in Sources */,
 				F033D1582C752FE40025C112 /* CheckedOutBooksModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

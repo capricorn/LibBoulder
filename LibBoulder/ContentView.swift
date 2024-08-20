@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct ContentView: View {
-    // TODO: Get user defaults from environment
     @State private var libraryCardNo: String = ""
     @AppStorage("libraryCardNumber") private var libraryCardNumber: String?
     @Environment(\.libCatAPI) var libCatAPI
@@ -33,7 +32,7 @@ struct ContentView: View {
                         Task {
                             do {
                                 try await libCatAPI.login(cardNumber: libraryCardNo)
-                                UserDefaults.standard.setValue(libraryCardNo, forKey: "libraryCardNumber")
+                                libraryCardNumber = libraryCardNo
                             } catch {
                                 print("Login failed: \(error)")
                             }
