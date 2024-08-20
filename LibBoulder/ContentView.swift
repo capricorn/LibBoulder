@@ -8,34 +8,42 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var loggedIn = false
+    // TODO: Get user defaults from environment
     @State private var libraryCardNo: String = ""
+    @AppStorage("libraryCardNumber") private var libraryCardNumber: String?
+    
+    var loggedIn: Bool {
+        libraryCardNumber != nil
+    }
     
     let api = LibCatAPI()
     
     var body: some View {
         // TODO: Initial load, determine if cookie exists. If so, try.
         // Otherwise on 401 a logout will occur.
-        if loggedIn {
-            Button("Fetch books") {
-                
-            }
-        } else {
-            VStack(alignment: .center) {
-                TextField("Library Card Number", text: $libraryCardNo)
-                    .keyboardType(.numberPad)
-                    .monospaced()
-                Button("Log in") {
-                    Task {
-                        do {
-                            try await api.login(cardNumber: libraryCardNo)
-                            loggedIn = true
-                        } catch {
-                            print("Login failed: \(error)")
+        VStack {
+            if loggedIn {
+                CheckedOutBooksView()
+            } else {
+                VStack(alignment: .center) {
+                    TextField("Library Card Number", text: $libraryCardNo)
+                        .keyboardType(.numberPad)
+                        .monospaced()
+                    // TODO: Loading indicator
+                    Button("Log in") {
+                        Task {
+                            do {
+                                try await api.login(cardNumber: libraryCardNo)
+                                UserDefaults.standard.setValue(libraryCardNo, forKey: "libraryCardNumber")
+                            } catch {
+                                print("Login failed: \(error)")
+                            }
                         }
                     }
                 }
             }
+        }
+        .onAppear {
         }
     }
 }

@@ -26,4 +26,11 @@ class LibCatAPI {
             print("Cookie: \(cookie.name)")
         }
     }
+    
+    func fetchCheckedOutBooks() async throws -> CheckedOutBooksModel {
+        var req = URLRequest(url: LibCatAPI.baseURL.appending(component: "checked_out"))
+        let (data, resp) = try await URLSession.shared.data(for: req)
+        
+        return try JSONDecoder().decode(CheckedOutBooksModel.self, from: data)
+    }
 }
