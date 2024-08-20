@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct LibBoulderApp: App {
+    let libCatAPI = LibCatAPI()
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environment(\.libCatAPI, libCatAPI)
         }
     }
 }

@@ -11,12 +11,11 @@ struct ContentView: View {
     // TODO: Get user defaults from environment
     @State private var libraryCardNo: String = ""
     @AppStorage("libraryCardNumber") private var libraryCardNumber: String?
+    @Environment(\.libCatAPI) var libCatAPI
     
     var loggedIn: Bool {
         libraryCardNumber != nil
     }
-    
-    let api = LibCatAPI()
     
     var body: some View {
         // TODO: Initial load, determine if cookie exists. If so, try.
@@ -33,7 +32,7 @@ struct ContentView: View {
                     Button("Log in") {
                         Task {
                             do {
-                                try await api.login(cardNumber: libraryCardNo)
+                                try await libCatAPI.login(cardNumber: libraryCardNo)
                                 UserDefaults.standard.setValue(libraryCardNo, forKey: "libraryCardNumber")
                             } catch {
                                 print("Login failed: \(error)")
