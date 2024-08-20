@@ -8,26 +8,37 @@
 import SwiftUI
 
 struct CheckedOutBooksView: View {
-    @State private var books: [CheckedOutBookModel] = []
     @AppStorage(UserDefaultKey.libraryCardNumber.rawValue) private var libraryCardNumber: String?
     @Environment(\.libCatAPI) var libCatAPI
-    
+    @State private var books: [CheckedOutBookModel] = []
+    @State private var loading = true
+
     var body: some View {
-        List(books) { book in
-            Text(book.title)
-        }
-        .refreshable {
-            Task {
-                do {
-                    books = (try await libCatAPI.fetchCheckedOutBooks()).checkedOut
-                    print("Refreshed books: \(Date.now)")
-                } catch {
-                    print("Failed to refresh books: \(error)")
+        VStack {
+            if loading {
+                ProgressView()
+            } else {
+                List(books) { book in
+                    Text(book.title)
+                }
+                .refreshable {
+                    Task {
+                        do {
+                            books = (try await libCatAPI.fetchCheckedOutBooks()).checkedOut
+                            print("Refreshed books: \(Date.now)")
+                        } catch {
+                            print("Failed to refresh books: \(error)")
+                        }
+                    }
                 }
             }
         }
         .task {
             // TODO: Loading indicator
+            await MainActor.run {
+                loading = true
+            }
+            
             do {
                 // First, check if there is a session cookie available
                 let sessionCookie = (URLSession.shared.configuration.httpCookieStorage?.cookies(for: LibCatAPI.baseURL)?.first ?? nil)
@@ -36,6 +47,11 @@ struct CheckedOutBooksView: View {
                 }
                 
                 books = (try await libCatAPI.fetchCheckedOutBooks()).checkedOut
+                await MainActor.run {
+                    withAnimation {
+                        loading = false
+                    }
+                }
             } catch {
                 print("Failed to fetch books: \(error)")
             }
