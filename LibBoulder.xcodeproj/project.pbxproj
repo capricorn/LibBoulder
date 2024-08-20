@@ -14,6 +14,7 @@
 		F033D13A2C73E4890025C112 /* LibBoulderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F033D1392C73E4890025C112 /* LibBoulderTests.swift */; };
 		F033D1442C73E4890025C112 /* LibBoulderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F033D1432C73E4890025C112 /* LibBoulderUITests.swift */; };
 		F033D1462C73E4890025C112 /* LibBoulderUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F033D1452C73E4890025C112 /* LibBoulderUITestsLaunchTests.swift */; };
+		F033D1542C73E6320025C112 /* LibCatAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F033D1532C73E6320025C112 /* LibCatAPI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,8 @@
 		F033D13F2C73E4890025C112 /* LibBoulderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LibBoulderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F033D1432C73E4890025C112 /* LibBoulderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibBoulderUITests.swift; sourceTree = "<group>"; };
 		F033D1452C73E4890025C112 /* LibBoulderUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibBoulderUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		F033D1522C73E5170025C112 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		F033D1532C73E6320025C112 /* LibCatAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibCatAPI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +97,8 @@
 		F033D1272C73E4880025C112 /* LibBoulder */ = {
 			isa = PBXGroup;
 			children = (
+				F033D1522C73E5170025C112 /* Info.plist */,
+				F033D1532C73E6320025C112 /* LibCatAPI.swift */,
 				F033D1282C73E4880025C112 /* LibBoulderApp.swift */,
 				F033D12A2C73E4880025C112 /* ContentView.swift */,
 				F033D12C2C73E4890025C112 /* Assets.xcassets */,
@@ -258,6 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F033D12B2C73E4880025C112 /* ContentView.swift in Sources */,
+				F033D1542C73E6320025C112 /* LibCatAPI.swift in Sources */,
 				F033D1292C73E4880025C112 /* LibBoulderApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -425,6 +431,7 @@
 				DEVELOPMENT_TEAM = Q49KLF9VPG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = LibBoulder/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -454,6 +461,7 @@
 				DEVELOPMENT_TEAM = Q49KLF9VPG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = LibBoulder/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
