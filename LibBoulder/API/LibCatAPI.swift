@@ -7,7 +7,13 @@
 
 import Foundation
 
-class LibCatAPI {
+protocol LibCatAPIRepresentable {
+    static var baseURL: URL { get }
+    func login(cardNumber: String) async throws
+    func fetchCheckedOutBooks() async throws -> CheckedOutBooksModel
+}
+
+class LibCatAPI: LibCatAPIRepresentable {
     static let baseURL = URL(string: "https://libcat-597bd308b192.herokuapp.com")!
     
     func login(cardNumber: String) async throws {
