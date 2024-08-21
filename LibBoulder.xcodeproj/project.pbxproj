@@ -22,6 +22,10 @@
 		F033D1612C753F340025C112 /* UserDefaultsExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F033D1602C753F340025C112 /* UserDefaultsExtensions.swift */; };
 		F033D1632C7541BA0025C112 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F033D1622C7541BA0025C112 /* LoginView.swift */; };
 		F033D1682C7545A70025C112 /* PreviewAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = F033D1672C7545A70025C112 /* PreviewAssets.swift */; };
+		F033D16D2C7646340025C112 /* CheckedOutBooksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F033D16C2C7646330025C112 /* CheckedOutBooksViewModel.swift */; };
+		F033D16F2C7648810025C112 /* CheckedOutBooksTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F033D16E2C7648810025C112 /* CheckedOutBooksTests.swift */; };
+		F033D1712C7649420025C112 /* checked-out.json in Resources */ = {isa = PBXBuildFile; fileRef = F033D1702C7649420025C112 /* checked-out.json */; };
+		F033D1732C7649590025C112 /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F033D1722C7649590025C112 /* TestData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +65,10 @@
 		F033D1602C753F340025C112 /* UserDefaultsExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsExtensions.swift; sourceTree = "<group>"; };
 		F033D1622C7541BA0025C112 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		F033D1672C7545A70025C112 /* PreviewAssets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewAssets.swift; sourceTree = "<group>"; };
+		F033D16C2C7646330025C112 /* CheckedOutBooksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckedOutBooksViewModel.swift; sourceTree = "<group>"; };
+		F033D16E2C7648810025C112 /* CheckedOutBooksTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckedOutBooksTests.swift; sourceTree = "<group>"; };
+		F033D1702C7649420025C112 /* checked-out.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "checked-out.json"; path = "LibBoulder/Preview Content/Preview Assets.xcassets/checked-out.dataset/checked-out.json"; sourceTree = SOURCE_ROOT; };
+		F033D1722C7649590025C112 /* TestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +128,7 @@
 				F033D12E2C73E4890025C112 /* Preview Content */,
 				F033D15B2C7531060025C112 /* CheckedOutBooksView.swift */,
 				F033D1622C7541BA0025C112 /* LoginView.swift */,
+				F033D16C2C7646330025C112 /* CheckedOutBooksViewModel.swift */,
 			);
 			path = LibBoulder;
 			sourceTree = "<group>";
@@ -138,6 +147,7 @@
 			children = (
 				F033D1642C7544B40025C112 /* Data */,
 				F033D1392C73E4890025C112 /* LibBoulderTests.swift */,
+				F033D16E2C7648810025C112 /* CheckedOutBooksTests.swift */,
 			);
 			path = LibBoulderTests;
 			sourceTree = "<group>";
@@ -181,6 +191,8 @@
 		F033D1642C7544B40025C112 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				F033D1702C7649420025C112 /* checked-out.json */,
+				F033D1722C7649590025C112 /* TestData.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -298,6 +310,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F033D1712C7649420025C112 /* checked-out.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,6 +334,7 @@
 				F033D1632C7541BA0025C112 /* LoginView.swift in Sources */,
 				F033D15A2C75300D0025C112 /* CheckedOutBookModel.swift in Sources */,
 				F033D1682C7545A70025C112 /* PreviewAssets.swift in Sources */,
+				F033D16D2C7646340025C112 /* CheckedOutBooksViewModel.swift in Sources */,
 				F033D15E2C753DBC0025C112 /* EnvironmentExtensions.swift in Sources */,
 				F033D15C2C7531060025C112 /* CheckedOutBooksView.swift in Sources */,
 				F033D1612C753F340025C112 /* UserDefaultsExtensions.swift in Sources */,
@@ -332,7 +346,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F033D1732C7649590025C112 /* TestData.swift in Sources */,
 				F033D13A2C73E4890025C112 /* LibBoulderTests.swift in Sources */,
+				F033D16F2C7648810025C112 /* CheckedOutBooksTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

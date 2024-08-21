@@ -10,48 +10,35 @@ import SwiftUI
 struct CheckedOutBooksView: View {
     @AppStorage(UserDefaultKey.libraryCardNumber.rawValue) private var libraryCardNumber: String?
     @Environment(\.libCatAPI) var libCatAPI
-    @State private var books: [CheckedOutBookModel] = []
-    @State private var loading = true
-
+    @StateObject private var viewModel: CheckedOutBooksViewModel = CheckedOutBooksViewModel()
+    
     var body: some View {
         VStack {
-            if loading {
+            if viewModel.loading {
                 ProgressView()
             } else {
-                List(books) { book in
+                List(viewModel.books) { book in
                     Text(book.title)
                 }
                 .refreshable {
+                    // TODO: Handle refresh
                     Task {
                         do {
-                            books = (try await libCatAPI.fetchCheckedOutBooks()).checkedOut
-                            print("Refreshed books: \(Date.now)")
+                            try await viewModel.fetchBooks(libraryCardNumber: libraryCardNumber!)
                         } catch {
-                            print("Failed to refresh books: \(error)")
+                            print("Failed to fetch books: \(error)")
                         }
                     }
                 }
             }
         }
+        .onAppear {
+            viewModel.libCatAPI = libCatAPI
+        }
         .task {
-            // TODO: Loading indicator
-            await MainActor.run {
-                loading = true
-            }
-            
+            // TODO: Handle auth error here and logout if needed
             do {
-                // First, check if there is a session cookie available
-                let sessionCookie = (URLSession.shared.configuration.httpCookieStorage?.cookies(for: LibCatAPI.baseURL)?.first ?? nil)
-                if sessionCookie == nil {
-                    try await libCatAPI.login(cardNumber: libraryCardNumber!)
-                }
-                
-                books = (try await libCatAPI.fetchCheckedOutBooks()).checkedOut
-                await MainActor.run {
-                    withAnimation {
-                        loading = false
-                    }
-                }
+                try await viewModel.fetchBooks(libraryCardNumber: libraryCardNumber!)
             } catch {
                 print("Failed to fetch books: \(error)")
             }

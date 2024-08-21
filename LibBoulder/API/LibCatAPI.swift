@@ -37,6 +37,10 @@ class LibCatAPI: LibCatAPIRepresentable {
         var req = URLRequest(url: LibCatAPI.baseURL.appending(component: "checked_out"))
         let (data, resp) = try await URLSession.shared.data(for: req)
         
+        if let httpResp = resp as? HTTPURLResponse, httpResp.statusCode == 401 {
+            throw URLError(.userAuthenticationRequired)
+        }
+        
         return try JSONDecoder().decode(CheckedOutBooksModel.self, from: data)
     }
 }
