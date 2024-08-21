@@ -19,7 +19,8 @@ struct CheckedOutBooksView: View {
                 ProgressView()
             } else {
                 List(viewModel.books) { book in
-                    Text(book.title)
+                    //Text(book.title)
+                    CheckedOutBookView(book: book)
                 }
                 .refreshable {
                     await viewModel.refreshTask(libraryCardNumber: libraryCardNumber!)

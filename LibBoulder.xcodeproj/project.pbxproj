@@ -26,6 +26,7 @@
 		F033D16F2C7648810025C112 /* CheckedOutBooksTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F033D16E2C7648810025C112 /* CheckedOutBooksTests.swift */; };
 		F033D1712C7649420025C112 /* checked-out.json in Resources */ = {isa = PBXBuildFile; fileRef = F033D1702C7649420025C112 /* checked-out.json */; };
 		F033D1732C7649590025C112 /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F033D1722C7649590025C112 /* TestData.swift */; };
+		F033D1762C7658FC0025C112 /* CheckedOutBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F033D1752C7658FC0025C112 /* CheckedOutBookView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		F033D16E2C7648810025C112 /* CheckedOutBooksTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckedOutBooksTests.swift; sourceTree = "<group>"; };
 		F033D1702C7649420025C112 /* checked-out.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "checked-out.json"; path = "LibBoulder/Preview Content/Preview Assets.xcassets/checked-out.dataset/checked-out.json"; sourceTree = SOURCE_ROOT; };
 		F033D1722C7649590025C112 /* TestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
+		F033D1752C7658FC0025C112 /* CheckedOutBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckedOutBookView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 		F033D1272C73E4880025C112 /* LibBoulder */ = {
 			isa = PBXGroup;
 			children = (
+				F033D1742C7658D20025C112 /* CheckedOutBooks */,
 				F033D15F2C753DBF0025C112 /* Extensions */,
 				F033D1552C752F930025C112 /* API */,
 				F033D1522C73E5170025C112 /* Info.plist */,
@@ -126,9 +129,7 @@
 				F033D12A2C73E4880025C112 /* ContentView.swift */,
 				F033D12C2C73E4890025C112 /* Assets.xcassets */,
 				F033D12E2C73E4890025C112 /* Preview Content */,
-				F033D15B2C7531060025C112 /* CheckedOutBooksView.swift */,
 				F033D1622C7541BA0025C112 /* LoginView.swift */,
-				F033D16C2C7646330025C112 /* CheckedOutBooksViewModel.swift */,
 			);
 			path = LibBoulder;
 			sourceTree = "<group>";
@@ -195,6 +196,16 @@
 				F033D1722C7649590025C112 /* TestData.swift */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		F033D1742C7658D20025C112 /* CheckedOutBooks */ = {
+			isa = PBXGroup;
+			children = (
+				F033D15B2C7531060025C112 /* CheckedOutBooksView.swift */,
+				F033D16C2C7646330025C112 /* CheckedOutBooksViewModel.swift */,
+				F033D1752C7658FC0025C112 /* CheckedOutBookView.swift */,
+			);
+			path = CheckedOutBooks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -328,6 +339,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F033D1762C7658FC0025C112 /* CheckedOutBookView.swift in Sources */,
 				F033D12B2C73E4880025C112 /* ContentView.swift in Sources */,
 				F033D1542C73E6320025C112 /* LibCatAPI.swift in Sources */,
 				F033D1292C73E4880025C112 /* LibBoulderApp.swift in Sources */,
