@@ -10,6 +10,7 @@ import SwiftUI
 struct CheckedOutBooksView: View {
     @AppStorage(UserDefaultKey.libraryCardNumber.rawValue) private var libraryCardNumber: String?
     @Environment(\.libCatAPI) var libCatAPI
+    @Environment(\.logoutController) var logoutController
     @StateObject private var viewModel: CheckedOutBooksViewModel = CheckedOutBooksViewModel()
     
     var body: some View {
@@ -21,27 +22,16 @@ struct CheckedOutBooksView: View {
                     Text(book.title)
                 }
                 .refreshable {
-                    // TODO: Handle refresh
-                    Task {
-                        do {
-                            try await viewModel.fetchBooks(libraryCardNumber: libraryCardNumber!)
-                        } catch {
-                            print("Failed to fetch books: \(error)")
-                        }
-                    }
+                    await viewModel.refreshTask(libraryCardNumber: libraryCardNumber!)
                 }
             }
         }
         .onAppear {
             viewModel.libCatAPI = libCatAPI
+            viewModel.logoutController = logoutController
         }
         .task {
-            // TODO: Handle auth error here and logout if needed
-            do {
-                try await viewModel.fetchBooks(libraryCardNumber: libraryCardNumber!)
-            } catch {
-                print("Failed to fetch books: \(error)")
-            }
+            await viewModel.refreshTask(libraryCardNumber: libraryCardNumber!, initialLoad: true)
         }
     }
 }

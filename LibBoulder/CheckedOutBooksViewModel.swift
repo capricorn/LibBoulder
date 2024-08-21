@@ -9,20 +9,25 @@ import SwiftUI
 
 class CheckedOutBooksViewModel: ObservableObject {
     var libCatAPI: LibCatAPIRepresentable!
+    var logoutController: LogoutController!
     
     @Published var loading = false
     @Published var books: [CheckedOutBookModel] = []
     
-    func fetchBooks(libraryCardNumber: String) async throws {
-        await MainActor.run {
-            loading = true
+    func fetchBooks(libraryCardNumber: String, initialLoad: Bool = false) async throws {
+        if initialLoad {
+            await MainActor.run {
+                loading = true
+            }
         }
         
         defer {
-            Task {
-                await MainActor.run {
-                    withAnimation {
-                        loading = false
+            if initialLoad {
+                Task {
+                    await MainActor.run {
+                        withAnimation {
+                            loading = false
+                        }
                     }
                 }
             }
@@ -48,6 +53,19 @@ class CheckedOutBooksViewModel: ObservableObject {
             await MainActor.run {
                 self.books = books
             }
+        }
+    }
+    
+    func refreshTask(libraryCardNumber: String, initialLoad: Bool = false) async {
+        do {
+            try await fetchBooks(libraryCardNumber: libraryCardNumber, initialLoad: initialLoad)
+        } catch let error as URLError {
+            if error.code == .userAuthenticationRequired {
+                print("401 -- logging out")
+                logoutController()
+            }
+        } catch {
+            print("Failed to fetch books: \(error)")
         }
     }
 }

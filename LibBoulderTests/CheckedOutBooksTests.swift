@@ -73,4 +73,28 @@ final class CheckedOutBooksTests: XCTestCase {
         
         XCTAssert(viewModel.books.count == 2)
     }
+    
+    func testRefreshTaskLogout() async throws {
+        class MockLibCatAPI: LibCatAPIRepresentable {
+            static let baseURL: URL = LibCatAPI.baseURL
+            
+            let testData: TestData
+            
+            init(testData: TestData) {
+                self.testData = testData
+            }
+            
+            func login(cardNumber: String) async throws {}
+            
+            func fetchCheckedOutBooks() async throws -> CheckedOutBooksModel {
+                throw URLError(.userAuthenticationRequired)
+            }
+        }
+        
+        let expectation = XCTestExpectation(description: "logoutController() called")
+        viewModel.libCatAPI = MockLibCatAPI(testData: testData)
+        viewModel.logoutController = { expectation.fulfill() }
+        await viewModel.refreshTask(libraryCardNumber: "123")
+        await fulfillment(of: [expectation], timeout: 3)
+    }
 }

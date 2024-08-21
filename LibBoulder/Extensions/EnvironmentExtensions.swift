@@ -11,6 +11,11 @@ struct LibCatAPIEnvironmentKey: EnvironmentKey {
     static let defaultValue: LibCatAPIRepresentable = LibCatAPI()
 }
 
+typealias LogoutController = () -> Void
+struct LogoutControllerEnvironmentKey: EnvironmentKey {
+    static let defaultValue: LogoutController = {}
+}
+
 extension EnvironmentValues {
     var libCatAPI: LibCatAPIRepresentable {
         get {
@@ -18,6 +23,15 @@ extension EnvironmentValues {
         }
         set {
             self[LibCatAPIEnvironmentKey.self] = newValue
+        }
+    }
+    
+    var logoutController: LogoutController {
+        get {
+            self[LogoutControllerEnvironmentKey.self]
+        }
+        set {
+            self[LogoutControllerEnvironmentKey.self] = newValue
         }
     }
 }

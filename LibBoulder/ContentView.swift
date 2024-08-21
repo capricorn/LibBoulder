@@ -15,8 +15,6 @@ struct ContentView: View {
     }
     
     var body: some View {
-        // TODO: Initial load, determine if cookie exists. If so, try.
-        // Otherwise on 401 a logout will occur.
         VStack {
             if loggedIn {
                 CheckedOutBooksView()
@@ -24,6 +22,15 @@ struct ContentView: View {
                 LoginView()
             }
         }
+        .environment(\.logoutController, {
+            Task {
+                await MainActor.run {
+                    withAnimation {
+                        self.libraryCardNumber = nil
+                    }
+                }
+            }
+        })
     }
 }
 
