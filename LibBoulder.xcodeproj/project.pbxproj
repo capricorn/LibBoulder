@@ -17,13 +17,13 @@
 		F033D1542C73E6320025C112 /* LibCatAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F033D1532C73E6320025C112 /* LibCatAPI.swift */; };
 		F033D1582C752FE40025C112 /* CheckedOutBooksModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F033D1572C752FE40025C112 /* CheckedOutBooksModel.swift */; };
 		F033D15A2C75300D0025C112 /* CheckedOutBookModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F033D1592C75300D0025C112 /* CheckedOutBookModel.swift */; };
-		F033D15C2C7531060025C112 /* CheckedOutBooksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F033D15B2C7531060025C112 /* CheckedOutBooksView.swift */; };
+		F033D15C2C7531060025C112 /* AccountOverviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F033D15B2C7531060025C112 /* AccountOverviewView.swift */; };
 		F033D15E2C753DBC0025C112 /* EnvironmentExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F033D15D2C753DBC0025C112 /* EnvironmentExtensions.swift */; };
 		F033D1612C753F340025C112 /* UserDefaultsExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F033D1602C753F340025C112 /* UserDefaultsExtensions.swift */; };
 		F033D1632C7541BA0025C112 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F033D1622C7541BA0025C112 /* LoginView.swift */; };
 		F033D1682C7545A70025C112 /* PreviewAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = F033D1672C7545A70025C112 /* PreviewAssets.swift */; };
-		F033D16D2C7646340025C112 /* CheckedOutBooksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F033D16C2C7646330025C112 /* CheckedOutBooksViewModel.swift */; };
-		F033D16F2C7648810025C112 /* CheckedOutBooksTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F033D16E2C7648810025C112 /* CheckedOutBooksTests.swift */; };
+		F033D16D2C7646340025C112 /* AccountOverviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F033D16C2C7646330025C112 /* AccountOverviewViewModel.swift */; };
+		F033D16F2C7648810025C112 /* AccountOverviewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F033D16E2C7648810025C112 /* AccountOverviewTests.swift */; };
 		F033D1712C7649420025C112 /* checked-out.json in Resources */ = {isa = PBXBuildFile; fileRef = F033D1702C7649420025C112 /* checked-out.json */; };
 		F033D1732C7649590025C112 /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F033D1722C7649590025C112 /* TestData.swift */; };
 		F033D1762C7658FC0025C112 /* CheckedOutBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F033D1752C7658FC0025C112 /* CheckedOutBookView.swift */; };
@@ -61,13 +61,13 @@
 		F033D1532C73E6320025C112 /* LibCatAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibCatAPI.swift; sourceTree = "<group>"; };
 		F033D1572C752FE40025C112 /* CheckedOutBooksModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckedOutBooksModel.swift; sourceTree = "<group>"; };
 		F033D1592C75300D0025C112 /* CheckedOutBookModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckedOutBookModel.swift; sourceTree = "<group>"; };
-		F033D15B2C7531060025C112 /* CheckedOutBooksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckedOutBooksView.swift; sourceTree = "<group>"; };
+		F033D15B2C7531060025C112 /* AccountOverviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountOverviewView.swift; sourceTree = "<group>"; };
 		F033D15D2C753DBC0025C112 /* EnvironmentExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentExtensions.swift; sourceTree = "<group>"; };
 		F033D1602C753F340025C112 /* UserDefaultsExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsExtensions.swift; sourceTree = "<group>"; };
 		F033D1622C7541BA0025C112 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		F033D1672C7545A70025C112 /* PreviewAssets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewAssets.swift; sourceTree = "<group>"; };
-		F033D16C2C7646330025C112 /* CheckedOutBooksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckedOutBooksViewModel.swift; sourceTree = "<group>"; };
-		F033D16E2C7648810025C112 /* CheckedOutBooksTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckedOutBooksTests.swift; sourceTree = "<group>"; };
+		F033D16C2C7646330025C112 /* AccountOverviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountOverviewViewModel.swift; sourceTree = "<group>"; };
+		F033D16E2C7648810025C112 /* AccountOverviewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountOverviewTests.swift; sourceTree = "<group>"; };
 		F033D1702C7649420025C112 /* checked-out.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "checked-out.json"; path = "LibBoulder/Preview Content/Preview Assets.xcassets/checked-out.dataset/checked-out.json"; sourceTree = SOURCE_ROOT; };
 		F033D1722C7649590025C112 /* TestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
 		F033D1752C7658FC0025C112 /* CheckedOutBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckedOutBookView.swift; sourceTree = "<group>"; };
@@ -121,7 +121,7 @@
 		F033D1272C73E4880025C112 /* LibBoulder */ = {
 			isa = PBXGroup;
 			children = (
-				F033D1742C7658D20025C112 /* CheckedOutBooks */,
+				F033D1742C7658D20025C112 /* AccountOverview */,
 				F033D15F2C753DBF0025C112 /* Extensions */,
 				F033D1552C752F930025C112 /* API */,
 				F033D1522C73E5170025C112 /* Info.plist */,
@@ -148,7 +148,7 @@
 			children = (
 				F033D1642C7544B40025C112 /* Data */,
 				F033D1392C73E4890025C112 /* LibBoulderTests.swift */,
-				F033D16E2C7648810025C112 /* CheckedOutBooksTests.swift */,
+				F033D16E2C7648810025C112 /* AccountOverviewTests.swift */,
 			);
 			path = LibBoulderTests;
 			sourceTree = "<group>";
@@ -198,14 +198,14 @@
 			path = Data;
 			sourceTree = "<group>";
 		};
-		F033D1742C7658D20025C112 /* CheckedOutBooks */ = {
+		F033D1742C7658D20025C112 /* AccountOverview */ = {
 			isa = PBXGroup;
 			children = (
-				F033D15B2C7531060025C112 /* CheckedOutBooksView.swift */,
-				F033D16C2C7646330025C112 /* CheckedOutBooksViewModel.swift */,
+				F033D15B2C7531060025C112 /* AccountOverviewView.swift */,
+				F033D16C2C7646330025C112 /* AccountOverviewViewModel.swift */,
 				F033D1752C7658FC0025C112 /* CheckedOutBookView.swift */,
 			);
-			path = CheckedOutBooks;
+			path = AccountOverview;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -346,9 +346,9 @@
 				F033D1632C7541BA0025C112 /* LoginView.swift in Sources */,
 				F033D15A2C75300D0025C112 /* CheckedOutBookModel.swift in Sources */,
 				F033D1682C7545A70025C112 /* PreviewAssets.swift in Sources */,
-				F033D16D2C7646340025C112 /* CheckedOutBooksViewModel.swift in Sources */,
+				F033D16D2C7646340025C112 /* AccountOverviewViewModel.swift in Sources */,
 				F033D15E2C753DBC0025C112 /* EnvironmentExtensions.swift in Sources */,
-				F033D15C2C7531060025C112 /* CheckedOutBooksView.swift in Sources */,
+				F033D15C2C7531060025C112 /* AccountOverviewView.swift in Sources */,
 				F033D1612C753F340025C112 /* UserDefaultsExtensions.swift in Sources */,
 				F033D1582C752FE40025C112 /* CheckedOutBooksModel.swift in Sources */,
 			);
@@ -360,7 +360,7 @@
 			files = (
 				F033D1732C7649590025C112 /* TestData.swift in Sources */,
 				F033D13A2C73E4890025C112 /* LibBoulderTests.swift in Sources */,
-				F033D16F2C7648810025C112 /* CheckedOutBooksTests.swift in Sources */,
+				F033D16F2C7648810025C112 /* AccountOverviewTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

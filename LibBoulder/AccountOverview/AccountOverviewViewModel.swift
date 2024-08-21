@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-class CheckedOutBooksViewModel: ObservableObject {
+class AccountOverviewViewModel: ObservableObject {
     var libCatAPI: LibCatAPIRepresentable!
     var logoutController: LogoutController!
     

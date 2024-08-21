@@ -7,11 +7,11 @@
 
 import SwiftUI
 
-struct CheckedOutBooksView: View {
+struct AccountOverviewView: View {
     @AppStorage(UserDefaultKey.libraryCardNumber.rawValue) private var libraryCardNumber: String?
     @Environment(\.libCatAPI) var libCatAPI
     @Environment(\.logoutController) var logoutController
-    @StateObject private var viewModel: CheckedOutBooksViewModel = CheckedOutBooksViewModel()
+    @StateObject private var viewModel: AccountOverviewViewModel = AccountOverviewViewModel()
     
     var body: some View {
         VStack {
@@ -52,7 +52,7 @@ private struct LibCatPreviewAPI: LibCatAPIRepresentable {
     // TODO: Make extension for this
     defaults.setValue("123", forKey: UserDefaultKey.libraryCardNumber.rawValue)
     
-    return CheckedOutBooksView()
+    return AccountOverviewView()
         .environment(\.libCatAPI, LibCatPreviewAPI())
         .defaultAppStorage(defaults)
 }

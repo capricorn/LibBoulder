@@ -9,12 +9,12 @@ import XCTest
 
 @testable import LibBoulder
 
-final class CheckedOutBooksTests: XCTestCase {
-    var viewModel: CheckedOutBooksViewModel!
+final class AccountOverviewTests: XCTestCase {
+    var viewModel: AccountOverviewViewModel!
     var testData: TestData!
 
     override func setUpWithError() throws {
-        viewModel = CheckedOutBooksViewModel()
+        viewModel = AccountOverviewViewModel()
         testData = TestData(bundle: Bundle(for: type(of: self)))
     }
 
