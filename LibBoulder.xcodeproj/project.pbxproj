@@ -32,6 +32,7 @@
 		F033D17D2C77D5A90025C112 /* LibraryCredentialsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F033D17C2C77D5A90025C112 /* LibraryCredentialsViewModel.swift */; };
 		F033D1802C77D9D80025C112 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = F033D17F2C77D9D80025C112 /* KeychainAccess */; };
 		F033D1822C77DA830025C112 /* KeychainAccessExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F033D1812C77DA820025C112 /* KeychainAccessExtensions.swift */; };
+		F033D1852C77E16A0025C112 /* KeychainRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F033D1842C77E16A0025C112 /* KeychainRepresentable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +81,7 @@
 		F033D17A2C77A19A0025C112 /* LibraryCredentialsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryCredentialsView.swift; sourceTree = "<group>"; };
 		F033D17C2C77D5A90025C112 /* LibraryCredentialsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryCredentialsViewModel.swift; sourceTree = "<group>"; };
 		F033D1812C77DA820025C112 /* KeychainAccessExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainAccessExtensions.swift; sourceTree = "<group>"; };
+		F033D1842C77E16A0025C112 /* KeychainRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainRepresentable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +133,7 @@
 		F033D1272C73E4880025C112 /* LibBoulder */ = {
 			isa = PBXGroup;
 			children = (
+				F033D1832C77E1600025C112 /* Util */,
 				F033D1772C779E4B0025C112 /* Settings */,
 				F033D1742C7658D20025C112 /* AccountOverview */,
 				F033D15F2C753DBF0025C112 /* Extensions */,
@@ -228,6 +231,14 @@
 				F033D17C2C77D5A90025C112 /* LibraryCredentialsViewModel.swift */,
 			);
 			path = Settings;
+			sourceTree = "<group>";
+		};
+		F033D1832C77E1600025C112 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				F033D1842C77E16A0025C112 /* KeychainRepresentable.swift */,
+			);
+			path = Util;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -374,6 +385,7 @@
 				F033D1292C73E4880025C112 /* LibBoulderApp.swift in Sources */,
 				F033D1632C7541BA0025C112 /* LoginView.swift in Sources */,
 				F033D15A2C75300D0025C112 /* CheckedOutBookModel.swift in Sources */,
+				F033D1852C77E16A0025C112 /* KeychainRepresentable.swift in Sources */,
 				F033D1822C77DA830025C112 /* KeychainAccessExtensions.swift in Sources */,
 				F033D1682C7545A70025C112 /* PreviewAssets.swift in Sources */,
 				F033D16D2C7646340025C112 /* AccountOverviewViewModel.swift in Sources */,

@@ -25,3 +25,5 @@ extension Keychain {
         try self.remove(key.rawValue)
     }
 }
+
+extension Keychain: KeychainRepresentable {}

@@ -15,7 +15,7 @@ class LibraryCredentialsViewModel: ObservableObject {
     @Published var authenticated: Bool = false
 
     var libCatAPI: LibCatAPIRepresentable!
-    var keychain: Keychain!
+    var keychain: KeychainRepresentable!
     
     func authenticate() async -> Bool {
         await MainActor.run {
