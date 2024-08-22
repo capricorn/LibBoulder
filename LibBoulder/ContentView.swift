@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var displaySettings = false
     @AppStorage(UserDefaultKey.libraryCardNumber.rawValue) private var libraryCardNumber: String?
     
     var loggedIn: Bool {
@@ -16,11 +17,25 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
+            HStack {
+                Button { 
+                    displaySettings = true
+                } label: {
+                    Image(systemName: "gearshape")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 25)
+                        .padding(.leading, 8)
+                }
+                .tint(.black)
+                Spacer()
+            }
             if loggedIn {
                 AccountOverviewView()
             } else {
                 LoginView()
             }
+            Spacer()
         }
         .environment(\.logoutController, {
             Task {
@@ -31,6 +46,9 @@ struct ContentView: View {
                 }
             }
         })
+        .sheet(isPresented: $displaySettings) {
+            SettingsView()
+        }
     }
 }
 
