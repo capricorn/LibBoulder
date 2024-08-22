@@ -13,6 +13,7 @@ struct LibraryCredentialsView: View {
     @StateObject var viewModel: LibraryCredentialsViewModel = LibraryCredentialsViewModel()
     @State private var password: String = ""
     @State private var cardNumberVisible = false
+    @FocusState private var cardNumberFocused: Bool
     // TODO: Should query DB initially to determine this.
     
     let libraryName: String
@@ -37,7 +38,13 @@ struct LibraryCredentialsView: View {
                 }
                 .monospaced()
                 .keyboardType(.numberPad)
-                
+                .focused($cardNumberFocused)
+                .onSubmit {
+                    Task {
+                        await viewModel.authenticateCard()
+                    }
+                }
+
                 if requiresPassword {
                     SecureField(text: $password, prompt: Text("Password")) {
                         Text("Password")
@@ -47,6 +54,7 @@ struct LibraryCredentialsView: View {
             .padding(.bottom, 16)
             
             Button {
+                cardNumberFocused = false
                 Task {
                     await viewModel.authenticateCard()
                 }
