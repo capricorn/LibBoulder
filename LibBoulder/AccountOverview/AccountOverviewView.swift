@@ -6,25 +6,34 @@
 //
 
 import SwiftUI
+import KeychainAccess
 
 struct AccountOverviewView: View {
-    @AppStorage(UserDefaultKey.libraryCardNumber.rawValue) private var libraryCardNumber: String?
     @Environment(\.libCatAPI) var libCatAPI
     @Environment(\.logoutController) var logoutController
     @StateObject private var viewModel: AccountOverviewViewModel = AccountOverviewViewModel()
     
+    let keychain = Keychain(service: "com.goatfish.LibBoulder")
+    
+    var libraryCardNumber: String? {
+        try? keychain.get(key: .norlinUsername)
+    }
+    
     var body: some View {
         VStack {
-            if viewModel.loading {
-                ProgressView()
+            if let libraryCardNumber {
+                if viewModel.loading {
+                    ProgressView()
+                } else {
+                    List(viewModel.books) { book in
+                        CheckedOutBookView(book: book)
+                    }
+                    .refreshable {
+                        await viewModel.refreshTask(libraryCardNumber: libraryCardNumber)
+                    }
+                }
             } else {
-                List(viewModel.books) { book in
-                    //Text(book.title)
-                    CheckedOutBookView(book: book)
-                }
-                .refreshable {
-                    await viewModel.refreshTask(libraryCardNumber: libraryCardNumber!)
-                }
+                Text("Tap the gear and add a library card.")
             }
         }
         .onAppear {
@@ -32,7 +41,11 @@ struct AccountOverviewView: View {
             viewModel.logoutController = logoutController
         }
         .task {
-            await viewModel.refreshTask(libraryCardNumber: libraryCardNumber!, initialLoad: true)
+            guard let libraryCardNumber else {
+                return
+            }
+            
+            await viewModel.refreshTask(libraryCardNumber: libraryCardNumber, initialLoad: true)
         }
     }
 }

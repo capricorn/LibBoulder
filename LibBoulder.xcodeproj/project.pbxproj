@@ -30,6 +30,8 @@
 		F033D1792C779E570025C112 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F033D1782C779E570025C112 /* SettingsView.swift */; };
 		F033D17B2C77A19A0025C112 /* LibraryCredentialsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F033D17A2C77A19A0025C112 /* LibraryCredentialsView.swift */; };
 		F033D17D2C77D5A90025C112 /* LibraryCredentialsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F033D17C2C77D5A90025C112 /* LibraryCredentialsViewModel.swift */; };
+		F033D1802C77D9D80025C112 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = F033D17F2C77D9D80025C112 /* KeychainAccess */; };
+		F033D1822C77DA830025C112 /* KeychainAccessExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F033D1812C77DA820025C112 /* KeychainAccessExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +79,7 @@
 		F033D1782C779E570025C112 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		F033D17A2C77A19A0025C112 /* LibraryCredentialsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryCredentialsView.swift; sourceTree = "<group>"; };
 		F033D17C2C77D5A90025C112 /* LibraryCredentialsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryCredentialsViewModel.swift; sourceTree = "<group>"; };
+		F033D1812C77DA820025C112 /* KeychainAccessExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainAccessExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F033D1802C77D9D80025C112 /* KeychainAccess in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -192,6 +196,7 @@
 			children = (
 				F033D15D2C753DBC0025C112 /* EnvironmentExtensions.swift */,
 				F033D1602C753F340025C112 /* UserDefaultsExtensions.swift */,
+				F033D1812C77DA820025C112 /* KeychainAccessExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -241,6 +246,9 @@
 			dependencies = (
 			);
 			name = LibBoulder;
+			packageProductDependencies = (
+				F033D17F2C77D9D80025C112 /* KeychainAccess */,
+			);
 			productName = LibBoulder;
 			productReference = F033D1252C73E4880025C112 /* LibBoulder.app */;
 			productType = "com.apple.product-type.application";
@@ -313,6 +321,9 @@
 				Base,
 			);
 			mainGroup = F033D11C2C73E4880025C112;
+			packageReferences = (
+				F033D17E2C77D9D80025C112 /* XCRemoteSwiftPackageReference "KeychainAccess" */,
+			);
 			productRefGroup = F033D1262C73E4880025C112 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -363,6 +374,7 @@
 				F033D1292C73E4880025C112 /* LibBoulderApp.swift in Sources */,
 				F033D1632C7541BA0025C112 /* LoginView.swift in Sources */,
 				F033D15A2C75300D0025C112 /* CheckedOutBookModel.swift in Sources */,
+				F033D1822C77DA830025C112 /* KeychainAccessExtensions.swift in Sources */,
 				F033D1682C7545A70025C112 /* PreviewAssets.swift in Sources */,
 				F033D16D2C7646340025C112 /* AccountOverviewViewModel.swift in Sources */,
 				F033D15E2C753DBC0025C112 /* EnvironmentExtensions.swift in Sources */,
@@ -704,6 +716,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F033D17E2C77D9D80025C112 /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kishikawakatsumi/KeychainAccess";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F033D17F2C77D9D80025C112 /* KeychainAccess */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F033D17E2C77D9D80025C112 /* XCRemoteSwiftPackageReference "KeychainAccess" */;
+			productName = KeychainAccess;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F033D11D2C73E4880025C112 /* Project object */;
 }

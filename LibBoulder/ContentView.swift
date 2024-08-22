@@ -9,11 +9,6 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var displaySettings = false
-    @AppStorage(UserDefaultKey.libraryCardNumber.rawValue) private var libraryCardNumber: String?
-    
-    var loggedIn: Bool {
-        libraryCardNumber != nil
-    }
     
     var body: some View {
         VStack {
@@ -30,21 +25,21 @@ struct ContentView: View {
                 .tint(.black)
                 Spacer()
             }
-            if loggedIn {
-                AccountOverviewView()
-            } else {
-                LoginView()
-            }
+            AccountOverviewView()
             Spacer()
         }
         .environment(\.logoutController, {
+            // TODO
+            /*
             Task {
                 await MainActor.run {
+                    LoginView()
                     withAnimation {
                         self.libraryCardNumber = nil
                     }
                 }
             }
+             */
         })
         .sheet(isPresented: $displaySettings) {
             SettingsView()
