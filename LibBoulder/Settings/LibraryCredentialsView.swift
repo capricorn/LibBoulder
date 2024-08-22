@@ -9,14 +9,17 @@ import SwiftUI
 
 struct LibraryCredentialsView: View {
     @Environment(\.libCatAPI) var libCatAPI
-    @State private var cardNumber: String = ""
+    @StateObject var viewModel: LibraryCredentialsViewModel = LibraryCredentialsViewModel()
     @State private var password: String = ""
     @State private var cardNumberVisible = false
     // TODO: Should query DB initially to determine this.
-    @State private var authenticated = false
     
     let libraryName: String
     let requiresPassword: Bool
+    
+    var authenticateButtonString: String {
+        (viewModel.authenticated) ? "Deauthenticate" : "Authenticate"
+    }
     
     init(name libraryName: String, requiresPassword: Bool = false) {
         self.libraryName = libraryName
@@ -27,12 +30,8 @@ struct LibraryCredentialsView: View {
         VStack(alignment: .leading) {
             Text(libraryName)
                 .font(.title2)
-            // Idea: validate card number on entering?
             VStack {
-                TextField(text: $cardNumber, prompt: Text("Card number")) {
-                    //Text("\(Image(systemName: "creditcard"))")
-                    //Label("", image: Image(systemName: "creditcard"))
-                    //Label("", systemImage: "creditcard")
+                TextField(text: $viewModel.cardNumber, prompt: Text("Card number")) {
                     Text("Card number")
                 }
                 .monospaced()
@@ -45,29 +44,26 @@ struct LibraryCredentialsView: View {
                 }
             }
             .padding(.bottom, 16)
-                // TODO: Approach to doing this such that last 4 digits are visible?
-                // (If it isn't focused, display the last four digits?)
-                /*
-                Button {
-                    withAnimation {
-                        cardNumberVisible.toggle()
-                    }
-                } label: {
-                    if cardNumberVisible {
-                        Image(systemName: "eye")
-                    } else {
-                        Image(systemName: "eye.slash")
-                    }
-                }
-                .tint(.black)
-                 */
             
             Button {
-                // TODO: Implement auth task
+                Task {
+                    await viewModel.authenticateCard()
+                }
             } label: {
-                Text("Authenticate")
+                if viewModel.authenticationInProgress {
+                    HStack {
+                        Text(authenticateButtonString)
+                        ProgressView()
+                    }
+                } else {
+                    Text(authenticateButtonString)
+                }
             }
             .buttonStyle(.bordered)
+            .disabled(viewModel.authenticationInProgress)
+        }
+        .onAppear{
+            viewModel.libCatAPI = libCatAPI
         }
     }
 }

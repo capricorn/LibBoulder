@@ -29,6 +29,7 @@
 		F033D1762C7658FC0025C112 /* CheckedOutBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F033D1752C7658FC0025C112 /* CheckedOutBookView.swift */; };
 		F033D1792C779E570025C112 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F033D1782C779E570025C112 /* SettingsView.swift */; };
 		F033D17B2C77A19A0025C112 /* LibraryCredentialsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F033D17A2C77A19A0025C112 /* LibraryCredentialsView.swift */; };
+		F033D17D2C77D5A90025C112 /* LibraryCredentialsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F033D17C2C77D5A90025C112 /* LibraryCredentialsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		F033D1752C7658FC0025C112 /* CheckedOutBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckedOutBookView.swift; sourceTree = "<group>"; };
 		F033D1782C779E570025C112 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		F033D17A2C77A19A0025C112 /* LibraryCredentialsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryCredentialsView.swift; sourceTree = "<group>"; };
+		F033D17C2C77D5A90025C112 /* LibraryCredentialsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryCredentialsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -218,6 +220,7 @@
 			children = (
 				F033D1782C779E570025C112 /* SettingsView.swift */,
 				F033D17A2C77A19A0025C112 /* LibraryCredentialsView.swift */,
+				F033D17C2C77D5A90025C112 /* LibraryCredentialsViewModel.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -356,6 +359,7 @@
 				F033D1762C7658FC0025C112 /* CheckedOutBookView.swift in Sources */,
 				F033D12B2C73E4880025C112 /* ContentView.swift in Sources */,
 				F033D1542C73E6320025C112 /* LibCatAPI.swift in Sources */,
+				F033D17D2C77D5A90025C112 /* LibraryCredentialsViewModel.swift in Sources */,
 				F033D1292C73E4880025C112 /* LibBoulderApp.swift in Sources */,
 				F033D1632C7541BA0025C112 /* LoginView.swift in Sources */,
 				F033D15A2C75300D0025C112 /* CheckedOutBookModel.swift in Sources */,
