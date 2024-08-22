@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import KeychainAccess
 
 @MainActor
 class LibraryCredentialsViewModel: ObservableObject {
@@ -14,6 +15,7 @@ class LibraryCredentialsViewModel: ObservableObject {
     @Published var authenticated: Bool = false
 
     var libCatAPI: LibCatAPIRepresentable!
+    var keychain: Keychain!
     
     func authenticate() async -> Bool {
         await MainActor.run {
@@ -36,12 +38,22 @@ class LibraryCredentialsViewModel: ObservableObject {
     
     func authenticateCard() async {
         if authenticated {
-            authenticated = false
             cardNumber = ""
+            do {
+                try keychain.remove(key: .norlinUsername)
+                authenticated = false
+            } catch {
+                print("Failed to remove keychain: \(error)")
+            }
         } else {
             if await authenticate() {
                 // TODO: Authenticate here
-                authenticated = true
+                do {
+                    authenticated = true
+                    try keychain.set(key: .norlinUsername, cardNumber)
+                } catch {
+                    print("Failed to set keychain: \(error)")
+                }
             }
         }
     }

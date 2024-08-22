@@ -11,13 +11,9 @@ import KeychainAccess
 struct AccountOverviewView: View {
     @Environment(\.libCatAPI) var libCatAPI
     @Environment(\.logoutController) var logoutController
+    @Environment(\.keychain) var keychain
     @StateObject private var viewModel: AccountOverviewViewModel = AccountOverviewViewModel()
-    
-    let keychain = Keychain(service: "com.goatfish.LibBoulder")
-    
-    var libraryCardNumber: String? {
-        try? keychain.get(key: .norlinUsername)
-    }
+    @State private var libraryCardNumber: String? = nil
     
     var body: some View {
         VStack {
@@ -39,6 +35,17 @@ struct AccountOverviewView: View {
         .onAppear {
             viewModel.libCatAPI = libCatAPI
             viewModel.logoutController = logoutController
+            libraryCardNumber = try? keychain.get(key: .norlinUsername)
+            
+            // TODO: Better polling mechanism?
+            Task {
+                while Task.isCancelled == false {
+                    try? await Task.sleep(nanoseconds: UInt64(1e9))
+                    await MainActor.run {
+                        libraryCardNumber = try? keychain.get(key: .norlinUsername)
+                    }
+                }
+            }
         }
         .task {
             guard let libraryCardNumber else {

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct LibraryCredentialsView: View {
     @Environment(\.libCatAPI) var libCatAPI
+    @Environment(\.keychain) var keychain
     @StateObject var viewModel: LibraryCredentialsViewModel = LibraryCredentialsViewModel()
     @State private var password: String = ""
     @State private var cardNumberVisible = false
@@ -64,6 +65,7 @@ struct LibraryCredentialsView: View {
         }
         .onAppear{
             viewModel.libCatAPI = libCatAPI
+            viewModel.keychain = keychain
         }
     }
 }

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import KeychainAccess
 
 struct LibCatAPIEnvironmentKey: EnvironmentKey {
     static let defaultValue: LibCatAPIRepresentable = LibCatAPI()
@@ -14,6 +15,10 @@ struct LibCatAPIEnvironmentKey: EnvironmentKey {
 typealias LogoutController = () -> Void
 struct LogoutControllerEnvironmentKey: EnvironmentKey {
     static let defaultValue: LogoutController = {}
+}
+
+struct KeychainEnvironmentKey: EnvironmentKey {
+    static let defaultValue: Keychain = Keychain(service: "com.goatfish.LibBoulder")
 }
 
 extension EnvironmentValues {
@@ -32,6 +37,15 @@ extension EnvironmentValues {
         }
         set {
             self[LogoutControllerEnvironmentKey.self] = newValue
+        }
+    }
+    
+    var keychain: Keychain {
+        get {
+            self[KeychainEnvironmentKey.self]
+        }
+        set {
+            self[KeychainEnvironmentKey.self] = newValue
         }
     }
 }
