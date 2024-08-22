@@ -24,12 +24,20 @@ struct AccountOverviewView: View {
                     List(viewModel.books) { book in
                         CheckedOutBookView(book: book)
                     }
+                    // TODO: Disable or guard if task is in progress? Can check progress var
                     .refreshable {
                         await viewModel.refreshTask(libraryCardNumber: libraryCardNumber)
                     }
                 }
             } else {
                 Text("Tap the gear and add a library card.")
+            }
+        }
+        .onChange(of: libraryCardNumber) { old, new in
+            if old == nil, let new {
+                Task {
+                    await viewModel.refreshTask(libraryCardNumber: new)
+                }
             }
         }
         .onAppear {
