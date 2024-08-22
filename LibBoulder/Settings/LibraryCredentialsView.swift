@@ -68,6 +68,7 @@ struct LibraryCredentialsView: View {
                     Text(authenticateButtonString)
                 }
             }
+            .foregroundStyle(viewModel.authenticated ? .red : .blue)
             .buttonStyle(.bordered)
             .disabled(viewModel.authenticationInProgress)
         }
