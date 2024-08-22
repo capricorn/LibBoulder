@@ -66,6 +66,8 @@ struct LibraryCredentialsView: View {
         .onAppear{
             viewModel.libCatAPI = libCatAPI
             viewModel.keychain = keychain
+            viewModel.cardNumber = (try? keychain.get(key: .norlinUsername)) ?? ""
+            viewModel.authenticated = ((try? keychain.get(key: .norlinUsername)) != nil)
         }
     }
 }
