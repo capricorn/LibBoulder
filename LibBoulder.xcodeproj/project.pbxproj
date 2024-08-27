@@ -34,6 +34,7 @@
 		F033D1822C77DA830025C112 /* KeychainAccessExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F033D1812C77DA820025C112 /* KeychainAccessExtensions.swift */; };
 		F033D1852C77E16A0025C112 /* KeychainRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F033D1842C77E16A0025C112 /* KeychainRepresentable.swift */; };
 		F033D1872C7E7D530025C112 /* LibraryAPIRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F033D1862C7E7D530025C112 /* LibraryAPIRepresentable.swift */; };
+		F033D1892C7E7F740025C112 /* BoulderPublicLibraryAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F033D1882C7E7F740025C112 /* BoulderPublicLibraryAPI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +85,7 @@
 		F033D1812C77DA820025C112 /* KeychainAccessExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainAccessExtensions.swift; sourceTree = "<group>"; };
 		F033D1842C77E16A0025C112 /* KeychainRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainRepresentable.swift; sourceTree = "<group>"; };
 		F033D1862C7E7D530025C112 /* LibraryAPIRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryAPIRepresentable.swift; sourceTree = "<group>"; };
+		F033D1882C7E7F740025C112 /* BoulderPublicLibraryAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoulderPublicLibraryAPI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +186,7 @@
 				F033D1562C752F9F0025C112 /* Models */,
 				F033D1532C73E6320025C112 /* LibCatAPI.swift */,
 				F033D1862C7E7D530025C112 /* LibraryAPIRepresentable.swift */,
+				F033D1882C7E7F740025C112 /* BoulderPublicLibraryAPI.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -387,6 +390,7 @@
 				F033D17D2C77D5A90025C112 /* LibraryCredentialsViewModel.swift in Sources */,
 				F033D1292C73E4880025C112 /* LibBoulderApp.swift in Sources */,
 				F033D1632C7541BA0025C112 /* LoginView.swift in Sources */,
+				F033D1892C7E7F740025C112 /* BoulderPublicLibraryAPI.swift in Sources */,
 				F033D15A2C75300D0025C112 /* CheckedOutBookModel.swift in Sources */,
 				F033D1852C77E16A0025C112 /* KeychainRepresentable.swift in Sources */,
 				F033D1822C77DA830025C112 /* KeychainAccessExtensions.swift in Sources */,
