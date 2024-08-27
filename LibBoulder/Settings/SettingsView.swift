@@ -13,14 +13,9 @@ struct SettingsView: View {
     var body: some View {
         List {
             Section {
-                LibraryCredentialsView(
-                    name: "Norlin Library"
-                )
-                LibraryCredentialsView(
-                    name: "Boulder Public Library",
-                    requiresPassword: true
-                )
-                .disabled(true) // TODO: Enable once BPL auth is supported
+                ForEach(LibraryId.allCases) { library in
+                    LibraryCredentialsView(library: library)
+                }
             } header: {
                 Text("Library Accounts ")
             }

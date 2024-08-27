@@ -7,9 +7,31 @@
 
 import Foundation
 
-enum LibraryId {
+enum LibraryId: CaseIterable, Identifiable {
     case norlin
     case boulder
+    
+    var name: String {
+        switch self {
+        case .norlin:
+            "Norlin Library"
+        case .boulder:
+            "Boulder Public Library"
+        }
+    }
+    
+    var requiresPassword: Bool {
+        switch self {
+        case .norlin:
+            false
+        case .boulder:
+            true
+        }
+    }
+    
+    var id: Self {
+        self
+    }
 }
 
 protocol LibraryAPIRepresentable: Identifiable {

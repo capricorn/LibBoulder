@@ -15,22 +15,15 @@ struct LibraryCredentialsView: View {
     @State private var cardNumberVisible = false
     @FocusState private var cardNumberFocused: Bool
     // TODO: Should query DB initially to determine this.
-    
-    let libraryName: String
-    let requiresPassword: Bool
+    let library: LibraryId
     
     var authenticateButtonString: String {
         (viewModel.authenticated) ? "Deauthenticate" : "Authenticate"
     }
     
-    init(name libraryName: String, requiresPassword: Bool = false) {
-        self.libraryName = libraryName
-        self.requiresPassword = requiresPassword
-    }
-    
     var body: some View {
         VStack(alignment: .leading) {
-            Text(libraryName)
+            Text(library.name)
                 .font(.title2)
             VStack {
                 TextField(text: $viewModel.cardNumber, prompt: Text("Card number")) {
@@ -45,7 +38,7 @@ struct LibraryCredentialsView: View {
                     }
                 }
 
-                if requiresPassword {
+                if library.requiresPassword {
                     SecureField(text: $password, prompt: Text("Password")) {
                         Text("Password")
                     }
@@ -82,7 +75,5 @@ struct LibraryCredentialsView: View {
 }
 
 #Preview {
-    LibraryCredentialsView(
-        name: "Norlin Library"
-    )
+    LibraryCredentialsView(library: .norlin)
 }
