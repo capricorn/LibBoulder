@@ -44,3 +44,14 @@ class LibCatAPI: LibCatAPIRepresentable {
         return try JSONDecoder().decode(CheckedOutBooksModel.self, from: data)
     }
 }
+
+
+extension LibCatAPI: LibraryAPIRepresentable {
+    func login(username: String, password: String) async throws {
+        try await self.login(cardNumber: username)
+    }
+    
+    var id: LibraryId {
+        .norlin
+    }
+}

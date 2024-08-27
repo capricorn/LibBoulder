@@ -33,6 +33,7 @@
 		F033D1802C77D9D80025C112 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = F033D17F2C77D9D80025C112 /* KeychainAccess */; };
 		F033D1822C77DA830025C112 /* KeychainAccessExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F033D1812C77DA820025C112 /* KeychainAccessExtensions.swift */; };
 		F033D1852C77E16A0025C112 /* KeychainRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F033D1842C77E16A0025C112 /* KeychainRepresentable.swift */; };
+		F033D1872C7E7D530025C112 /* LibraryAPIRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F033D1862C7E7D530025C112 /* LibraryAPIRepresentable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +83,7 @@
 		F033D17C2C77D5A90025C112 /* LibraryCredentialsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryCredentialsViewModel.swift; sourceTree = "<group>"; };
 		F033D1812C77DA820025C112 /* KeychainAccessExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainAccessExtensions.swift; sourceTree = "<group>"; };
 		F033D1842C77E16A0025C112 /* KeychainRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainRepresentable.swift; sourceTree = "<group>"; };
+		F033D1862C7E7D530025C112 /* LibraryAPIRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryAPIRepresentable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +183,7 @@
 			children = (
 				F033D1562C752F9F0025C112 /* Models */,
 				F033D1532C73E6320025C112 /* LibCatAPI.swift */,
+				F033D1862C7E7D530025C112 /* LibraryAPIRepresentable.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -393,6 +396,7 @@
 				F033D15C2C7531060025C112 /* AccountOverviewView.swift in Sources */,
 				F033D1612C753F340025C112 /* UserDefaultsExtensions.swift in Sources */,
 				F033D17B2C77A19A0025C112 /* LibraryCredentialsView.swift in Sources */,
+				F033D1872C7E7D530025C112 /* LibraryAPIRepresentable.swift in Sources */,
 				F033D1582C752FE40025C112 /* CheckedOutBooksModel.swift in Sources */,
 				F033D1792C779E570025C112 /* SettingsView.swift in Sources */,
 			);
