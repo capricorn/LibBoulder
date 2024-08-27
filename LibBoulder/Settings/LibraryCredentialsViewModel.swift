@@ -10,11 +10,12 @@ import KeychainAccess
 
 @MainActor
 class LibraryCredentialsViewModel: ObservableObject {
-    @Published var cardNumber: String = ""
+    @Published var username: String = ""
+    @Published var password: String = ""
     @Published var authenticationInProgress = false
     @Published var authenticated: Bool = false
 
-    var libCatAPI: LibCatAPIRepresentable!
+    var library: LibraryId!
     var keychain: KeychainRepresentable!
     
     func authenticate() async -> Bool {
@@ -25,7 +26,7 @@ class LibraryCredentialsViewModel: ObservableObject {
         var success = false
         do {
             // TODO: Handle password
-            try await libCatAPI.login(cardNumber: cardNumber)
+            try await library.api.login(username: username, password: password)
             success = true
         } catch {}
         
@@ -38,9 +39,13 @@ class LibraryCredentialsViewModel: ObservableObject {
     
     func authenticateCard() async {
         if authenticated {
-            cardNumber = ""
+            username = ""
+            password = ""
             do {
-                try keychain.remove(key: .norlinUsername)
+                try keychain.remove(key: library.keychainUsernameKey)
+                if let passwordKey = library.keychainPasswordKey {
+                    try keychain.remove(key: passwordKey)
+                }
                 authenticated = false
             } catch {
                 print("Failed to remove keychain: \(error)")
@@ -50,7 +55,10 @@ class LibraryCredentialsViewModel: ObservableObject {
                 // TODO: Authenticate here
                 do {
                     authenticated = true
-                    try keychain.set(key: .norlinUsername, cardNumber)
+                    try keychain.set(key: library.keychainUsernameKey, username)
+                    if let passwordKey = library.keychainPasswordKey {
+                        try keychain.set(key: passwordKey, password)
+                    }
                 } catch {
                     print("Failed to set keychain: \(error)")
                 }

@@ -10,6 +10,8 @@ import KeychainAccess
 
 enum KeychainAccessKey: String {
     case norlinUsername
+    case boulderUsername
+    case boulderPassword
 }
 
 extension Keychain {

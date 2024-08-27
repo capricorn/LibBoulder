@@ -32,6 +32,34 @@ enum LibraryId: CaseIterable, Identifiable {
     var id: Self {
         self
     }
+    
+    var api: any LibraryAPIRepresentable {
+        switch self {
+        case .norlin:
+            LibCatAPI()
+        case .boulder:
+            BoulderPublicLibraryAPI()
+        }
+    }
+    
+    // TODO: Consider a different approach to pairing; for now, separate
+    var keychainUsernameKey: KeychainAccessKey {
+        switch self {
+        case .norlin:
+            .norlinUsername
+        case .boulder:
+            .boulderUsername
+        }
+    }
+    
+    var keychainPasswordKey: KeychainAccessKey? {
+        switch self {
+        case .norlin:
+            nil
+        case .boulder:
+            .boulderPassword
+        }
+    }
 }
 
 protocol LibraryAPIRepresentable: Identifiable {

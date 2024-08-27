@@ -11,7 +11,6 @@ struct LibraryCredentialsView: View {
     @Environment(\.libCatAPI) var libCatAPI
     @Environment(\.keychain) var keychain
     @StateObject var viewModel: LibraryCredentialsViewModel = LibraryCredentialsViewModel()
-    @State private var password: String = ""
     @State private var cardNumberVisible = false
     @FocusState private var cardNumberFocused: Bool
     // TODO: Should query DB initially to determine this.
@@ -26,7 +25,7 @@ struct LibraryCredentialsView: View {
             Text(library.name)
                 .font(.title2)
             VStack {
-                TextField(text: $viewModel.cardNumber, prompt: Text("Card number")) {
+                TextField(text: $viewModel.username, prompt: Text("Card number")) {
                     Text("Card number")
                 }
                 .monospaced()
@@ -39,7 +38,7 @@ struct LibraryCredentialsView: View {
                 }
 
                 if library.requiresPassword {
-                    SecureField(text: $password, prompt: Text("Password")) {
+                    SecureField(text: $viewModel.password, prompt: Text("Password")) {
                         Text("Password")
                     }
                 }
@@ -65,11 +64,18 @@ struct LibraryCredentialsView: View {
             .buttonStyle(.bordered)
             .disabled(viewModel.authenticationInProgress)
         }
-        .onAppear{
-            viewModel.libCatAPI = libCatAPI
+        .onAppear {
+            viewModel.library = library
             viewModel.keychain = keychain
-            viewModel.cardNumber = (try? keychain.get(key: .norlinUsername)) ?? ""
-            viewModel.authenticated = ((try? keychain.get(key: .norlinUsername)) != nil)
+            viewModel.username = (try? keychain.get(key: library.keychainUsernameKey)) ?? ""
+            // TODO: Add to VM and test
+            if let passwordKey = library.keychainPasswordKey {
+                viewModel.password = (try? keychain.get(key: passwordKey)) ?? ""
+                // TODO: Consider a different approach?
+                viewModel.authenticated = ((viewModel.username.isEmpty == false) && (viewModel.password.isEmpty == false))
+            } else {
+                viewModel.authenticated = (viewModel.username.isEmpty == false)
+            }
         }
     }
 }
