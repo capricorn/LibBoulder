@@ -10,7 +10,7 @@ import Foundation
 class CheckedOutBookModel: Codable, Identifiable {
     let title: String
     let author: String
-    let renewCount: Int
+    //let renewCount: Int
     let dueDate: Date
     let id = UUID()
     
@@ -25,7 +25,7 @@ class CheckedOutBookModel: Codable, Identifiable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.title = try container.decode(String.self, forKey: .title)
         self.author = try container.decode(String.self, forKey: .author)
-        self.renewCount = try container.decode(Int.self, forKey: .renewCount)
+        //self.renewCount = try container.decode(Int.self, forKey: .renewCount)
         let dueDateISO8601 = try container.decode(String.self, forKey: .dueDate)
         
         let dueDate = ISO8601DateFormatter().date(from: dueDateISO8601)
@@ -41,7 +41,7 @@ class CheckedOutBookModel: Codable, Identifiable {
         
         try container.encode(self.title, forKey: .title)
         try container.encode(self.author, forKey: .author)
-        try container.encode(self.renewCount, forKey: .renewCount)
+        //try container.encode(self.renewCount, forKey: .renewCount)
         try container.encode(self.dueDate.formatted(.iso8601), forKey: .dueDate)
     }
 }
