@@ -18,7 +18,7 @@ class CheckedOutBookModel: Codable, Identifiable {
         case title
         case author
         case renewCount = "renew_count"
-        case dueDate = "due_date"
+        case dueDate = "due_date_iso8601"
     }
     
     required init(from decoder: any Decoder) throws {
