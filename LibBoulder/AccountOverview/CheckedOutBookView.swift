@@ -16,8 +16,15 @@ struct CheckedOutBookView: View {
                 .font(.title3.bold())
             Text(book.author)
                 .padding(.bottom, 8)
-            Text("Due \(book.dueDate.formatted(date: .abbreviated, time: .omitted))")
-                .font(.caption.weight(.light))
+            HStack {
+                Text("Due \(book.dueDate.formatted(date: .abbreviated, time: .omitted))")
+                    .font(.caption.weight(.light))
+                Spacer()
+                if let libraryId = book.libraryId {
+                    Text("\(Image(systemName: "building.columns")) \(libraryId.name)")
+                        .font(.caption.weight(.light))
+                }
+            }
         }
     }
 }

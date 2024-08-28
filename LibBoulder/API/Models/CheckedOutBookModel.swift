@@ -8,6 +8,7 @@
 import Foundation
 
 class CheckedOutBookModel: Codable, Identifiable {
+    let libraryId: LibraryId?
     let title: String
     let author: String
     //let renewCount: Int
@@ -15,6 +16,7 @@ class CheckedOutBookModel: Codable, Identifiable {
     let id = UUID()
     
     enum CodingKeys: String, CodingKey {
+        case libraryId = "library_id"
         case title
         case author
         case renewCount = "renew_count"
@@ -34,6 +36,11 @@ class CheckedOutBookModel: Codable, Identifiable {
         }
         
         self.dueDate = dueDate
+        if let libraryIdRawValue = try container.decodeIfPresent(String.self, forKey: .libraryId) {
+            self.libraryId = LibraryId(rawValue: libraryIdRawValue)
+        } else {
+            self.libraryId = nil
+        }
     }
     
     func encode(to encoder: any Encoder) throws {
@@ -43,5 +50,6 @@ class CheckedOutBookModel: Codable, Identifiable {
         try container.encode(self.author, forKey: .author)
         //try container.encode(self.renewCount, forKey: .renewCount)
         try container.encode(self.dueDate.formatted(.iso8601), forKey: .dueDate)
+        try container.encodeIfPresent(libraryId?.rawValue, forKey: .libraryId)
     }
 }

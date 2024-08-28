@@ -9,13 +9,14 @@ import Foundation
 
 class CheckedOutBooksModel: Codable {
     let checkedOut: [CheckedOutBookModel]
-    let libraryId: LibraryId?
+    //let libraryId: LibraryId?
     
     enum CodingKeys: String, CodingKey {
         case checkedOut = "checked_out"
-        case libraryId = "library_id"
+        //case libraryId = "library_id"
     }
     
+    /*
     func encode(to encoder: any Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(checkedOut, forKey: .checkedOut)
@@ -32,4 +33,5 @@ class CheckedOutBooksModel: Codable {
             self.libraryId = nil
         }
     }
+     */
 }
