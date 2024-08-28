@@ -34,17 +34,21 @@ struct AccountOverviewView: View {
             }
         }
         .onChange(of: libraryCardNumber) { old, new in
+            // TODO: Bug with this an onappear -- results in dupe refresh
+            /*
             if old == nil, let new {
                 Task {
                     await viewModel.refreshTask(libraryCardNumber: new)
                 }
             }
+             */
         }
         .onAppear {
             viewModel.libCatAPI = libCatAPI
             viewModel.logoutController = logoutController
             libraryCardNumber = try? keychain.get(key: .norlinUsername)
             
+            /*
             // TODO: Better polling mechanism?
             Task {
                 while Task.isCancelled == false {
@@ -54,13 +58,21 @@ struct AccountOverviewView: View {
                     }
                 }
             }
+             */
         }
         .task {
+            /*
             guard let libraryCardNumber else {
                 return
             }
             
             await viewModel.refreshTask(libraryCardNumber: libraryCardNumber, initialLoad: true)
+             */
+            do {
+                try await viewModel.fetchBooks(keychain: keychain, initialLoad: true)
+            } catch {
+                print("Failed to fetch books: \(error)")
+            }
         }
     }
 }

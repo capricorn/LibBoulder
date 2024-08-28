@@ -15,7 +15,7 @@ class BoulderPublicLibraryAPI: LibraryAPIRepresentable {
     }
     
     func login(username: String, password: String) async throws {
-        var req = URLRequest(url: LibCatAPI.baseURL.appending(component: "login"))
+        var req = URLRequest(url: BoulderPublicLibraryAPI.baseURL.appending(component: "login"))
         let jsonBody = [
             "username": username,
             "password": password
@@ -28,7 +28,7 @@ class BoulderPublicLibraryAPI: LibraryAPIRepresentable {
     }
     
     func fetchCheckedOutBooks() async throws -> CheckedOutBooksModel {
-        var req = URLRequest(url: LibCatAPI.baseURL.appending(component: "checked_out"))
+        var req = URLRequest(url: BoulderPublicLibraryAPI.baseURL.appending(component: "checked_out"))
         let (data, resp) = try await URLSession.shared.data(for: req)
         
         if let httpResp = resp as? HTTPURLResponse, httpResp.statusCode == 401 {
