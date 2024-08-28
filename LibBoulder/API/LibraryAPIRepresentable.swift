@@ -60,6 +60,19 @@ enum LibraryId: CaseIterable, Identifiable {
             .boulderPassword
         }
     }
+    
+    func authenticated(keychain: KeychainRepresentable) -> Bool {
+        if (try? keychain.get(key: self.keychainUsernameKey)) == nil {
+            return false
+        }
+        
+        if let keychainPasswordKey = self.keychainPasswordKey,
+           (try? keychain.get(key: keychainPasswordKey)) == nil {
+            return false
+        }
+        
+        return true
+    }
 }
 
 protocol LibraryAPIRepresentable: Identifiable {
