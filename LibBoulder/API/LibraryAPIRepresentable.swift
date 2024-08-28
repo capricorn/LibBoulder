@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum LibraryId: CaseIterable, Identifiable {
+enum LibraryId: String, CaseIterable, Identifiable {
     case norlin
     case boulder
     
